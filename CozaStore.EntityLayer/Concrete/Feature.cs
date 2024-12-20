@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CozaStore.EntityLayer
+namespace CozaStore.EntityLayer.Concrete
 {
     public class Feature
     {

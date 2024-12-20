@@ -4,16 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CozaStore.EntityLayer
+namespace CozaStore.EntityLayer.Concrete
 {
-    public class Category
+    public class Product
     {
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
-
-        public List<Product> Products { get; set; }
+        public int ID { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
+        public string Description { get; set; }
         public string ImageURL { get; set; }
+
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }
