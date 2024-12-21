@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.BusinessLayer", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.DtoLayer", "CozaStore.DtoLayer\CozaStore.DtoLayer.csproj", "{0DB50354-2E21-44F4-9593-BA4CD44C2D83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.WebAPI", "CozaStore.WebAPI\CozaStore.WebAPI.csproj", "{F85A7AA6-D559-4658-9357-72228C366452}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F85A7AA6-D559-4658-9357-72228C366452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F85A7AA6-D559-4658-9357-72228C366452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F85A7AA6-D559-4658-9357-72228C366452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F85A7AA6-D559-4658-9357-72228C366452}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

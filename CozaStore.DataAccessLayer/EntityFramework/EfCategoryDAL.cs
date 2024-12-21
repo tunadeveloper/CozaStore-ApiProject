@@ -15,5 +15,6 @@ namespace CozaStore.DataAccessLayer.EntityFramework
         public EfCategoryDAL(ApiContext context) : base(context)
         {
         }
+
     }
 }
