@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.EntityLayer", "CozaStore.EntityLayer\CozaStore.EntityLayer.csproj", "{73A0665E-B097-4120-AFB6-2BC364E92F00}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.DataAccessLayer", "CozaStore.DataAccessLayer\CozaStore.DataAccessLayer.csproj", "{AF7F600E-5134-46FA-ABFE-571F2A785AC4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.BusinessLayer", "CozaStore.BusinessLayer\CozaStore.BusinessLayer.csproj", "{0FE4C2A4-62F8-4D64-BF6B-E00183E5FF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CozaStore.DtoLayer", "CozaStore.DtoLayer\CozaStore.DtoLayer.csproj", "{0DB50354-2E21-44F4-9593-BA4CD44C2D83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0FE4C2A4-62F8-4D64-BF6B-E00183E5FF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FE4C2A4-62F8-4D64-BF6B-E00183E5FF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FE4C2A4-62F8-4D64-BF6B-E00183E5FF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DB50354-2E21-44F4-9593-BA4CD44C2D83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
