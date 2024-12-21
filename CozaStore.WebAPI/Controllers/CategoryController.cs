@@ -18,6 +18,13 @@ namespace CozaStore.WebAPI.Controllers
         }
 
         [HttpGet]
+        public IActionResult CategoryList()
+        {
+            var values = _categoryService.TGetAll();
+            return Ok(values);
+        }
+
+        [HttpPost]
         public IActionResult CategoryList(CreateCategoryDto createCategoryDto)
         {
             Category category = new Category();

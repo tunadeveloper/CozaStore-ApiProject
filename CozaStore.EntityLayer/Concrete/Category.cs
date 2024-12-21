@@ -12,8 +12,5 @@ namespace CozaStore.EntityLayer.Concrete
         public string CategoryName { get; set; }
 
         public List<Product> Products { get; set; }
-        public string Title { get; set; }
-        public double Price { get; set; }
-        public string ImageURL { get; set; }
     }
 }

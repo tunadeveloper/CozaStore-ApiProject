@@ -13,9 +13,9 @@ namespace CozaStore.BusinessLayer.Concrete
     {
         private readonly ICategoryDAL _categoryDAL;
 
-        public int TCategoryCount()
+        public CategoryManager(ICategoryDAL categoryDAL)
         {
-            return _categoryDAL.CategoryCount();
+            _categoryDAL = categoryDAL;
         }
 
         public void TDelete(int id)
