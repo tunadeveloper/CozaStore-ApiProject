@@ -1,6 +1,6 @@
 ﻿namespace CozaStore.WebUI.Dtos.Feature
 {
-    public class GetByIdFeature
+    public class GetByIdFeatureDto
     {
         public int ID { get; set; }
         public string Title { get; set; }

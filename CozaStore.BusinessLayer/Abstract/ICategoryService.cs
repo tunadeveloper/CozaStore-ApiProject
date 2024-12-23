@@ -9,6 +9,5 @@ namespace CozaStore.BusinessLayer.Abstract
 {
     public interface ICategoryService : IGenericService<Category>
     {
-       
     }
 }

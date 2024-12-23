@@ -1,8 +1,7 @@
 ﻿namespace CozaStore.WebUI.Dtos.Product
 {
-    public class ResultProduct
+    public class CreateProductDto
     {
-        public int ID { get; set; }
         public string Title { get; set; }
         public double Price { get; set; }
         public string Description { get; set; }

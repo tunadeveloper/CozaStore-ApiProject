@@ -25,7 +25,7 @@ namespace CozaStore.WebAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CategoryList(CreateCategoryDto createCategoryDto)
+        public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         {
             Category category = new Category();
             category.CategoryName = createCategoryDto.CategoryName;
@@ -35,13 +35,13 @@ namespace CozaStore.WebAPI.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(int id)
+        public IActionResult DeleteCategory(int id)
         {
             _categoryService.TDelete(id);
             return Ok("Veri silme işlemi gerçekleşti!");
         }
 
-        [HttpGet("GetCateory")]
+        [HttpGet("GetCategory")]
         public IActionResult GetCategory(int id)
         {
             var value = _categoryService.TGetById(id);

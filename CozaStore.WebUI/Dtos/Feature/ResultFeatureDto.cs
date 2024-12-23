@@ -1,6 +1,6 @@
 ﻿namespace CozaStore.WebUI.Dtos.Feature
 {
-    public class ResultFeature
+    public class ResultFeatureDto
     {
         public int ID { get; set; }
         public string Title { get; set; }

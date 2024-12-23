@@ -66,5 +66,6 @@ namespace CozaStore.WebAPI.Controllers
             _productService.TUpdate(product);
             return Ok("Veri güncelleme işlemi gerçekleşti!");
         }
+
     }
 }

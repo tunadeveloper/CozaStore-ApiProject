@@ -28,10 +28,12 @@ namespace CozaStore.BusinessLayer.Concrete
             return _categoryDAL.GetAll();
         }
 
+
         public Category TGetById(int id)
         {
             return _categoryDAL.GetByID(id);
         }
+
 
         public void TInsert(Category entity)
         {

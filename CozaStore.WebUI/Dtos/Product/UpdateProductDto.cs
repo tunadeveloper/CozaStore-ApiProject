@@ -1,6 +1,6 @@
 ﻿namespace CozaStore.WebUI.Dtos.Product
 {
-    public class GetByIdProduct
+    public class UpdateProductDto
     {
         public int ID { get; set; }
         public string Title { get; set; }
