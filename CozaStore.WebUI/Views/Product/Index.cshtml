@@ -1,15 +1,40 @@
 ﻿@model List<CozaStore.WebUI.Dtos.Product.ResultProductDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
 
-<section class="bg0 p-t-23 p-b-140">
-    <div class="container">
-        <div class="p-b-10">
-            <h3 class="ltext-103 cl5">
-                Popüler Ürünlerimiz
-            </h3>
-        </div>
+	<!-- Product -->
+	<div class="bg0 m-t-23 p-b-140">
+		<div class="container">
+			<div class="flex-w flex-sb-m p-b-52">
+				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+						All Products
+					</button>
 
-        <br />
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+						Women
+					</button>
 
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+						Men
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+						Bag
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+						Shoes
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+						Watches
+					</button>
+				</div>
+
+			</div>
         <div class="row isotope-grid">
 
             @foreach (var item in Model)
@@ -64,7 +89,7 @@
                                             <div class="wrap-slick3-dots"></div>
                                             <div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
 
-                                         
+
                                             <div class="slick3 gallery-lb">
                                                 <div class="item-slick3" data-thumb="@item.ImageURL">
                                                     <div class="wrap-pic-w pos-relative">
@@ -75,10 +100,10 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                           
 
-                                            @if (item.ImageURL2 != null || item.ImageURL2 == "")
-                                            {
+
+                                                @if (item.ImageURL2 != null || item.ImageURL2 == "")
+                                                {
                                                     <div class="item-slick3" data-thumb="@item.ImageURL2">
                                                         <div class="wrap-pic-w pos-relative">
                                                             <img src="@item.ImageURL2" alt="IMG-PRODUCT">
@@ -88,10 +113,10 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                            }
+                                                }
 
-                                            @if (item.ImageURL3 != null || item.ImageURL3 == "")
-                                            {
+                                                @if (item.ImageURL3 != null || item.ImageURL3 == "")
+                                                {
                                                     <div class="item-slick3" data-thumb="@item.ImageURL3">
                                                         <div class="wrap-pic-w pos-relative">
                                                             <img src="@item.ImageURL3" alt="IMG-PRODUCT">
@@ -101,7 +126,7 @@
                                                             </a>
                                                         </div>
                                                     </div>
-                                            } 
+                                                }
                                             </div>
                                         </div>
                                     </div>
@@ -176,5 +201,5 @@
 
 
         </div>
-    </div>
-</section>
+		</div>
+	</div>
