@@ -1,1 +1,1 @@
-Coza Store
+Coza Stores
