@@ -3,6 +3,7 @@ using CozaStore.DtoLayer.ProductDtos;
 using CozaStore.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CozaStore.WebAPI.Controllers
 {
@@ -66,6 +67,14 @@ namespace CozaStore.WebAPI.Controllers
             _productService.TUpdate(product);
             return Ok("Veri güncelleme işlemi gerçekleşti!");
         }
+
+        [HttpGet("GetProductsByCategory")]
+        public IActionResult GetProductsByCategory(int categoryId)
+        {
+            var values = _productService.TGetAll().Where(p => p.CategoryID == categoryId);
+            return Ok(values);
+        }
+
 
     }
 }

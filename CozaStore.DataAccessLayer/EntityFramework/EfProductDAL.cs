@@ -15,5 +15,13 @@ namespace CozaStore.DataAccessLayer.EntityFramework
         public EfProductDAL(ApiContext context) : base(context)
         {
         }
+
+        public List<Product> GetProductsByCategory(int categoryId)
+        {
+            using (var context = new ApiContext())
+            {
+                return context.Products.Where(p => p.CategoryID == categoryId).ToList();
+            }
+        }
     }
 }
