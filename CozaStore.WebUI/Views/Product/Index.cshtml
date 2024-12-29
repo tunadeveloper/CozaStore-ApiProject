@@ -10,13 +10,15 @@
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
+                
+                    <a href="/Product/Index/" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
+                       Tüm Ürünler</a>
+           
                 @foreach (var category in Model.Categories)
                 {
-                    <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
-                        <a href="@Url.Action("CategoryProducts", "Product", new { categoryId = category.CategoryID })">
+                    <a href="@Url.Action("CategoryProducts", "Product", new { categoryId = category.CategoryID })" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5">
                             @category.CategoryName
                         </a>
-                    </button>
                 }
 
             </div>
