@@ -34,6 +34,7 @@ namespace CozaStore.WebAPI.Controllers
             product.Description = createProductDto.Description;
             product.Title = createProductDto.Title;
             product.ImageURL = createProductDto.ImageURL;
+            product.IsPopular = createProductDto.IsPopular;
 
             _productService.TInsert(product);
             return Ok("Veri ekleme işlemi gerçekleşti!");
@@ -63,7 +64,7 @@ namespace CozaStore.WebAPI.Controllers
             product.Title = updateProductDto.Title;
             product.ImageURL= updateProductDto.ImageURL;
             product.CategoryID= updateProductDto.CategoryID;
-
+            product.IsPopular= updateProductDto.IsPopular;
             _productService.TUpdate(product);
             return Ok("Veri güncelleme işlemi gerçekleşti!");
         }

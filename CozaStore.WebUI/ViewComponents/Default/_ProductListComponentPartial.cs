@@ -1,4 +1,5 @@
-﻿using CozaStore.WebUI.Dtos.Product;
+﻿using CozaStore.EntityLayer.Concrete;
+using CozaStore.WebUI.Dtos.Product;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;

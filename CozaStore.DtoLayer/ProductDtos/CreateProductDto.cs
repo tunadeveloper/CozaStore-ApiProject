@@ -14,6 +14,7 @@ namespace CozaStore.DtoLayer.ProductDtos
         public string ImageURL { get; set; }
         public string ImageURL2 { get; set; }
         public string ImageURL3 { get; set; }
+        public bool IsPopular { get; set; }
 
         public int CategoryID { get; set; }
     }
