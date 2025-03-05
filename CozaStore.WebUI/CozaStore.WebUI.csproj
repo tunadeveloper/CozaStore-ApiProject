@@ -15,4 +15,8 @@
     <ProjectReference Include="..\CozaStore.BusinessLayer\CozaStore.BusinessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Models\" />
+  </ItemGroup>
+
 </Project>
