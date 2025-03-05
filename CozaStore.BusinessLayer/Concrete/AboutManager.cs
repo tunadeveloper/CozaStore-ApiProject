@@ -1,4 +1,6 @@
 ﻿using CozaStore.BusinessLayer.Abstract;
+using CozaStore.DataAccessLayer.Abstract;
+using CozaStore.DataAccessLayer.EntityFramework;
 using CozaStore.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,36 +12,36 @@ namespace CozaStore.BusinessLayer.Concrete
 {
     public class AboutManager : IAboutService
     {
-        private readonly IAboutService _aboutService;
+        private readonly IAboutDAL _aboutDal;
 
-        public AboutManager(IAboutService aboutService)
+        public AboutManager(IAboutDAL aboutDal)
         {
-            _aboutService = aboutService;
+            _aboutDal = aboutDal;
         }
 
         public void TDelete(int id)
         {
-          _aboutService.TDelete(id);
+            _aboutDal.Delete(id);
         }
 
         public List<About> TGetAll()
         {
-            return _aboutService.TGetAll();
+            return _aboutDal.GetAll();
         }
 
         public About TGetById(int id)
         {
-          return _aboutService.TGetById(id);
+            return _aboutDal.GetByID(id);
         }
 
         public void TInsert(About entity)
         {
-            _aboutService.TInsert(entity);
+            _aboutDal.Instert(entity);
         }
 
         public void TUpdate(About entity)
         {
-           _aboutService.TUpdate(entity);
+            _aboutDal.Update(entity);
         }
     }
 }

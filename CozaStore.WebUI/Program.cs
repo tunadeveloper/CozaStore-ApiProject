@@ -20,6 +20,9 @@ builder.Services.AddScoped<IFeatureService, FeatureManager>();
 builder.Services.AddScoped<IMessageDAL, EfMessageDAL>();
 builder.Services.AddScoped<IMessageService, MessageManager>();
 
+builder.Services.AddScoped<IAboutDAL, EfAboutDAL>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
+
 builder.Services.AddDbContext<ApiContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();

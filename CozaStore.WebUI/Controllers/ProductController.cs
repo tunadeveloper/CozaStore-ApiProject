@@ -18,7 +18,6 @@ namespace CozaStore.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        // 📌 Kategorileri getiren yardımcı metod
         private async Task<List<ResultCategoryDto>> GetCategoriesAsync()
         {
             var client = _httpClientFactory.CreateClient();
@@ -31,7 +30,6 @@ namespace CozaStore.WebUI.Controllers
             return JsonConvert.DeserializeObject<List<ResultCategoryDto>>(data);
         }
 
-        // 📌 Tüm ürünleri getiren yardımcı metod
         private async Task<List<ResultProductDto>> GetProductsAsync(string endpoint)
         {
             var client = _httpClientFactory.CreateClient();
@@ -44,7 +42,6 @@ namespace CozaStore.WebUI.Controllers
             return JsonConvert.DeserializeObject<List<ResultProductDto>>(data);
         }
 
-        // 📌 Tüm ürünleri listeleme
         public async Task<IActionResult> Index()
         {
             var categories = await GetCategoriesAsync();
@@ -59,7 +56,6 @@ namespace CozaStore.WebUI.Controllers
             return View(viewModel);
         }
 
-        // 📌 Kategoriye göre ürünleri listeleme
         public async Task<IActionResult> CategoryProducts(int categoryId)
         {
             var categories = await GetCategoriesAsync();
@@ -74,15 +70,5 @@ namespace CozaStore.WebUI.Controllers
             return View("Index", viewModel);
         }
 
-        // 📌 Ürün detay sayfası
-        public async Task<IActionResult> Detail(int id)
-        {
-            var product = await GetProductsAsync($"https://localhost:7065/api/Product/{id}");
-
-            if (product == null || product.Count == 0)
-                return NotFound();
-
-            return View(product[0]);
-        }
     }
 }

@@ -296,48 +296,45 @@
     </div>
 </div>
 
-<!-- Bootstrap ve jQuery için gerekli kütüphaneler -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     function changeLargeImage(thumbnail) {
-        var largeImageUrl = $(thumbnail).data('large'); // Küçük resmin 'data-large' attribute'undaki büyük resmi al
-        $('#largeImage').attr('src', largeImageUrl); // Büyük resmi değiştir
+        var largeImageUrl = $(thumbnail).data('large'); 
+        $('#largeImage').attr('src', largeImageUrl); 
     }
 </script>
 
 <style>
-    /* Modal boyutlandırma */
+ 
     .modal-dialog {
-        max-width: 800px; /* Modal genişliğini sınırlama */
-        margin: 30px auto; /* Modalı sayfa ortasında konumlandırma */
+        max-width: 800px;
+        margin: 30px auto; 
     }
 
-    /* Modal başlık ve içerik arasındaki boşluğu azaltma */
+ 
     .modal-header {
         border-bottom: 1px solid #ddd;
     }
 
-    /* Modal gövdesindeki içerikleri ortalama */
+
     .modal-body {
         padding: 15px;
     }
 
-    /* Thumbnail resimler için uygun boyut */
     .product-thumbnails img {
         cursor: pointer;
-        width: 100px; /* Thumbnail resminin genişliği */
+        width: 100px; 
         margin-bottom: 10px;
     }
 
     .product-main-image img {
-        width: 100%; /* Büyük resim tam genişlikte */
+        width: 100%; 
         max-height: 500px;
-        object-fit: cover; /* Resmin oranını koruyarak uygun şekilde kırpılması */
+        object-fit: cover;
     }
 
-    /* Resimleri büyütmek için bir düzenleme */
     .modal-body img {
         cursor: zoom-in;
     }
@@ -346,8 +343,7 @@
             opacity: 0.8;
         }
 
-    /* Modal pencerenin üstten daha ortalı olmasını sağlamak */
     .modal.fade .modal-dialog {
-        transform: translate(0, 50%); /* Modal'ın daha düzgün şekilde ortalanması */
+        transform: translate(0, 50%); 
     }
 </style>
