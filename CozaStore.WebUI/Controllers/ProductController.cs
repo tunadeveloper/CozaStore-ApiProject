@@ -3,6 +3,9 @@ using CozaStore.WebUI.Dtos.Product;
 using CozaStore.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace CozaStore.WebUI.Controllers
 {
@@ -15,25 +18,37 @@ namespace CozaStore.WebUI.Controllers
             _httpClientFactory = httpClientFactory;
         }
 
-        public async Task<IActionResult> Index()
+        // 📌 Kategorileri getiren yardımcı metod
+        private async Task<List<ResultCategoryDto>> GetCategoriesAsync()
         {
             var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync("https://localhost:7065/api/Category");
 
-            var categoryResponse = await client.GetAsync("https://localhost:7065/api/Category");
-            List<ResultCategoryDto> categories = new();
-            if (categoryResponse.IsSuccessStatusCode)
-            {
-                var categoryData = await categoryResponse.Content.ReadAsStringAsync();
-                categories = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(categoryData);
-            }
+            if (!response.IsSuccessStatusCode)
+                return new List<ResultCategoryDto>();
 
-            var productResponse = await client.GetAsync("https://localhost:7065/api/Product");
-            List<ResultProductDto> products = new();
-            if (productResponse.IsSuccessStatusCode)
-            {
-                var productData = await productResponse.Content.ReadAsStringAsync();
-                products = JsonConvert.DeserializeObject<List<ResultProductDto>>(productData);
-            }
+            var data = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<ResultCategoryDto>>(data);
+        }
+
+        // 📌 Tüm ürünleri getiren yardımcı metod
+        private async Task<List<ResultProductDto>> GetProductsAsync(string endpoint)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync(endpoint);
+
+            if (!response.IsSuccessStatusCode)
+                return new List<ResultProductDto>();
+
+            var data = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<ResultProductDto>>(data);
+        }
+
+        // 📌 Tüm ürünleri listeleme
+        public async Task<IActionResult> Index()
+        {
+            var categories = await GetCategoriesAsync();
+            var products = await GetProductsAsync("https://localhost:7065/api/Product");
 
             var viewModel = new ProductIndexViewModel
             {
@@ -41,42 +56,33 @@ namespace CozaStore.WebUI.Controllers
                 Categories = categories
             };
 
-            return View(viewModel); 
+            return View(viewModel);
         }
 
-
-
+        // 📌 Kategoriye göre ürünleri listeleme
         public async Task<IActionResult> CategoryProducts(int categoryId)
         {
-            var client = _httpClientFactory.CreateClient();
-
-            var categoryResponse = await client.GetAsync("https://localhost:7065/api/Category");
-            List<ResultCategoryDto> categories = new();
-            if (categoryResponse.IsSuccessStatusCode)
-            {
-                var categoryData = await categoryResponse.Content.ReadAsStringAsync();
-                categories = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(categoryData);
-            }
-
-            var productResponse = await client.GetAsync($"https://localhost:7065/api/Product/GetProductsByCategory?categoryId={categoryId}");
-            List<ResultProductDto> products = new();
-            if (productResponse.IsSuccessStatusCode)
-            {
-                var productData = await productResponse.Content.ReadAsStringAsync();
-                products = JsonConvert.DeserializeObject<List<ResultProductDto>>(productData);
-            }
+            var categories = await GetCategoriesAsync();
+            var products = await GetProductsAsync($"https://localhost:7065/api/Product/GetProductsByCategory?categoryId={categoryId}");
 
             var viewModel = new ProductIndexViewModel
             {
-                Products = products, 
+                Products = products,
                 Categories = categories
             };
 
             return View("Index", viewModel);
         }
 
+        // 📌 Ürün detay sayfası
+        public async Task<IActionResult> Detail(int id)
+        {
+            var product = await GetProductsAsync($"https://localhost:7065/api/Product/{id}");
 
+            if (product == null || product.Count == 0)
+                return NotFound();
 
-
+            return View(product[0]);
+        }
     }
 }

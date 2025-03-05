@@ -1,0 +1,52 @@
+﻿@model CozaStore.WebUI.Dtos.Product.ResultProductDto
+
+@{
+    ViewData["Title"] = @Model.Title;
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="container p-t-60 p-b-20">
+    <div class="row">
+        <div class="col-md-6 col-lg-7">
+            <div class="wrap-slick3 flex-sb flex-w">
+                <div class="slick3 gallery-lb">
+                    <div class="item-slick3" data-thumb="@Model.ImageURL">
+                        <div class="wrap-pic-w pos-relative">
+                            <img src="@Model.ImageURL" alt="@Model.Title">
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.ImageURL2))
+                    {
+                        <div class="item-slick3" data-thumb="@Model.ImageURL2">
+                            <div class="wrap-pic-w pos-relative">
+                                <img src="@Model.ImageURL2" alt="@Model.Title">
+                            </div>
+                        </div>
+                    }
+
+                    @if (!string.IsNullOrEmpty(Model.ImageURL3))
+                    {
+                        <div class="item-slick3" data-thumb="@Model.ImageURL3">
+                            <div class="wrap-pic-w pos-relative">
+                                <img src="@Model.ImageURL3" alt="@Model.Title">
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-5">
+            <div class="p-t-5">
+                <h4 class="mtext-105 cl2">@Model.Title</h4>
+                <span class="mtext-106 cl2">@Model.Price ₺</span>
+                <p class="stext-102 cl3 p-t-23">@Model.Description</p>
+
+                <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                    Sipariş Ver
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
