@@ -76,6 +76,11 @@ namespace CozaStore.WebAPI.Controllers
             return Ok(values);
         }
 
-
+        [HttpGet("Count")]
+        public IActionResult GetProductCount()
+        {
+            var productCount = _productService.TGetAll().Count();
+            return Ok(productCount);
+        }
     }
 }

@@ -34,18 +34,25 @@ namespace CozaStore.WebAPI.Controllers
         [HttpPut]
         public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            About about = new About();
-            about.AboutID = updateAboutDto.AboutID;
-            about.ImageURL1 = updateAboutDto.ImageURL1;
-            about.ImageURL2 = updateAboutDto.ImageURL2;
-            about.Title1 = updateAboutDto.Title1;
-            about.Title2 = updateAboutDto.Title2;
-            about.Description1 = updateAboutDto.Description1;
-            about.Description2 = updateAboutDto.Description2;
-            
-            _aboutService.TUpdate(about);
+            var existingAbout = _aboutService.TGetById(updateAboutDto.AboutID);
+
+            if (existingAbout == null)
+            {
+                return NotFound("Güncellenecek veri bulunamadı!");
+            }
+
+            existingAbout.ImageURL1 = updateAboutDto.ImageURL1;
+            existingAbout.ImageURL2 = updateAboutDto.ImageURL2;
+            existingAbout.Title1 = updateAboutDto.Title1;
+            existingAbout.Title2 = updateAboutDto.Title2;
+            existingAbout.Description1 = updateAboutDto.Description1;
+            existingAbout.Description2 = updateAboutDto.Description2;
+
+            _aboutService.TUpdate(existingAbout);
+
             return Ok("Veri güncelleme işlemi gerçekleşti!");
         }
+
 
         [HttpDelete]
         public IActionResult DeleteAbout(int id)
