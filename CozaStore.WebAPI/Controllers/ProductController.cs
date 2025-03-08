@@ -29,18 +29,21 @@ namespace CozaStore.WebAPI.Controllers
         public IActionResult CreateProduct(CreateProductDto createProductDto)
         {
             Product product = new Product();
+
             product.CategoryID = createProductDto.CategoryID;
             product.Price = createProductDto.Price;
             product.Description = createProductDto.Description;
             product.Title = createProductDto.Title;
             product.ImageURL = createProductDto.ImageURL;
+            product.ImageURL2 = createProductDto.ImageURL2;
+            product.ImageURL3 = createProductDto.ImageURL3;
             product.IsPopular = createProductDto.IsPopular;
 
             _productService.TInsert(product);
             return Ok("Veri ekleme işlemi gerçekleşti!");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
            _productService.TDelete(id);
@@ -63,6 +66,8 @@ namespace CozaStore.WebAPI.Controllers
             product.Description = updateProductDto.Description;
             product.Title = updateProductDto.Title;
             product.ImageURL= updateProductDto.ImageURL;
+            product.ImageURL2 = updateProductDto.ImageURL2;
+            product.ImageURL3 = updateProductDto.ImageURL3;
             product.CategoryID= updateProductDto.CategoryID;
             product.IsPopular= updateProductDto.IsPopular;
             _productService.TUpdate(product);

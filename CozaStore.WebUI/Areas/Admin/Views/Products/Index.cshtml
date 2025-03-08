@@ -39,8 +39,10 @@
                                             <td>@item.Price ₺</td>
                                             <td>@item.CategoryID</td>
                                             <td><button class="btn btn-warning">Popüler</button></td>
-                                            <td><button class="btn btn-danger">Sil</button>
-                                            <button class="btn btn-success">Güncelle</button></td>
+                                            <td>
+                                                <a class="btn btn-danger" href="/Admin/Products/DeleteProduct/@item.ID">Sil</a>
+                                                <a class="btn btn-success" href="/Admin/Products/UpdateProduct/@item.ID">Güncelle</a>
+                                            </td>
                                         </tr>
                                     }
 
