@@ -1,0 +1,30 @@
+﻿@model CozaStore.WebUI.Dtos.Feature.CreateFeatureDto
+@{
+    ViewData["Title"] = "CreateFeature";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <h2>Yeni Öne Çıkan Ekle</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form action="/Admin/Feature/CreateFeature" method="post">
+                    <label>*Başlık:</label>
+                    <input type="text" name="Title" class="form-control" required />
+                    <br /><label>*Altbaşlık:</label>
+                    <textarea name="Subtitle" class="form-control" required rows="5"></textarea>
+                    
+                    <br />
+                    <label>*Görsel URL:</label>
+                    <input type="text" name="ImageURL" class="form-control" required />
+                   <br />
+                    <button type="submit" class="btn btn-primary">Öne Çıkar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

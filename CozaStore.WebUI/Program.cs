@@ -8,9 +8,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddHttpClient();
 
-builder.Services.AddScoped<IFeatureDAL, EfFeatureDAL>();
-builder.Services.AddScoped<IFeatureService, FeatureManager>();
-
 builder.Services.AddScoped<ICategoryDAL, EfCategoryDAL>();
 builder.Services.AddScoped<ICategoryService, CategoryManager>();
 
@@ -44,13 +41,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapAreaControllerRoute(
-    name: "areas",
-    areaName: "Admin",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "areas",
+    areaName: "Admin",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

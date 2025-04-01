@@ -2,68 +2,54 @@
 @{
     ViewData["Title"] = "CreateProduct";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
-}
 
+}
 
 <div class="content-body">
     <div class="container-fluid">
+        <h2>Yeni Ürün Ekle</h2>
+        <hr />
         <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Ürün Ekle</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <form action="/" method="post">
-                                <div class="form-group">
-                                <label class="text-label">Ürün Adı*</label>
-                                @Html.TextBoxFor(x => x.Title, new { @class = "form-control", required = "r" })
-                                </div>
+            <div class="col-md-8">
+                <form action="/Admin/Products/CreateProduct" method="post">
+                    <label>Ürün Adı:</label>
+                    <input type="text" name="Title" class="form-control" required />
+                    <br />
+                    <label>Fiyat:</label>
+                    <input type="number" name="Price" class="form-control" required step="0.01" />
+                    <br />
+                    <label>Açıklama:</label>
+                    <textarea name="Description" class="form-control" required></textarea>
+                    <br />
+                    <label>Resim 1 URL:</label>
+                    <input type="text" name="ImageURL" class="form-control" required />
+                    <br />
+                    <label>Resim 2 URL:</label>
+                    <input type="text" name="ImageURL2" class="form-control" required />
+                    <br />
+                    <label>Resim 3 URL:</label>
+                    <input type="text" name="ImageURL3" class="form-control" required />
+                    <br />
+                    <label>Popüler mi?:</label>
+                    <select name="IsPopular" class="form-control">
+                        <option value="true">Evet</option>
+                        <option value="false">Hayır</option>
+                    </select>
+                    <br />
+                    <label>Kategori:</label>
+                    <select name="CategoryID" class="form-control">
+                        @foreach (var category in ViewBag.Categories as SelectList)
+                        {
+                            <option value="@category.Value">@category.Text</option>
+                        }
+                    </select>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Ürünü Ekle</button>
+                </form>
 
-                                <div class="form-group">
-                                    <label class="text-label">Ürün Fiyatı*</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", type = "number", required = "r", step = "any" })
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Ürün Detayları*</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", required = "r" })
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Ürün Görseli*</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", required = "r" })
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Ürün 2. Görseli</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control"})
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="text-label">Ürün 3. Görseli</label>
-                                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control"})
-                                </div>
-
-                                <div class="form-group form-check form-switch">
-                                    @Html.CheckBoxFor(x => x.IsPopular, new { @class = "form-check-input" })
-                                    <label class="form-check-label" for="@Html.IdFor(x => x.IsPopular)">Popüler mi?</label>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="CategoryID">Ürün Kategorisi*</label>
-                                    @Html.DropDownListFor(x => x.CategoryID, (SelectList)ViewBag.Categories, "Kategori Seçin", new { @class = "form-control" })
-                                </div>
-
-                                <button class="btn btn-primary">Ürünü Ekle</button>
-                            </form>
-                            
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
+

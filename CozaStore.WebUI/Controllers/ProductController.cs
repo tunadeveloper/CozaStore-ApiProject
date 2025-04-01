@@ -56,10 +56,12 @@ namespace CozaStore.WebUI.Controllers
             return View(viewModel);
         }
 
+
         public async Task<IActionResult> CategoryProducts(int categoryId)
         {
             var categories = await GetCategoriesAsync();
-            var products = await GetProductsAsync($"https://localhost:7065/api/Product/GetProductsByCategory?categoryId={categoryId}");
+          
+            var products = await GetProductsAsync($"https://localhost:7065/api/Product/GetProductsByCategory/{categoryId}");
 
             var viewModel = new ProductIndexViewModel
             {
@@ -69,6 +71,8 @@ namespace CozaStore.WebUI.Controllers
 
             return View("Index", viewModel);
         }
+
+
 
     }
 }

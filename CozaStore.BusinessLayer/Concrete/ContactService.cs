@@ -1,4 +1,6 @@
 ﻿using CozaStore.BusinessLayer.Abstract;
+using CozaStore.DataAccessLayer.Abstract;
+using CozaStore.DataAccessLayer.EntityFramework;
 using CozaStore.EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -10,36 +12,36 @@ namespace CozaStore.BusinessLayer.Concrete
 {
     public class ContactService : IContactService
     {
-        private readonly IContactService _contactService;
+        private readonly IContactDAL _contactDal;
 
-        public ContactService(IContactService contactService)
+        public ContactService(IContactDAL contactDal)
         {
-            _contactService = contactService;
+            _contactDal = contactDal;
         }
 
         public void TDelete(int id)
         {
-            _contactService.TDelete(id);
+            _contactDal.Delete(id);
         }
 
         public List<Contact> TGetAll()
         {
-           return _contactService.TGetAll();
+           return _contactDal.GetAll();
         }
 
         public Contact TGetById(int id)
         {
-           return _contactService.TGetById(id);
+            return _contactDal.GetByID(id);
         }
 
         public void TInsert(Contact entity)
         {
-            _contactService.TInsert(entity);
+            _contactDal.Instert(entity);
         }
 
         public void TUpdate(Contact entity)
         {
-           _contactService.TUpdate(entity);
+           _contactDal.Update(entity);
         }
     }
 }

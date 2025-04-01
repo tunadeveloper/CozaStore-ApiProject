@@ -39,5 +39,22 @@ namespace CozaStore.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public async Task<IActionResult> DeleteMessage(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.DeleteAsync($"https://localhost:7065/api/Message?id={id}");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+        public async Task<IActionResult> MessageDetails()
+        {
+            return View();
+
+        }
     }
 }

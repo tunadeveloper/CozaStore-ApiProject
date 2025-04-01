@@ -1,4 +1,5 @@
 ﻿using CozaStore.BusinessLayer.Abstract;
+using CozaStore.DtoLayer.ContactDots;
 using CozaStore.DtoLayer.MessageDtos;
 using CozaStore.EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
@@ -10,29 +11,44 @@ namespace CozaStore.WebAPI.Controllers
     [ApiController]
     public class ContactController : ControllerBase
     {
-        private readonly IMessageService _messageService;
+        private readonly IContactService _contactService;
 
-        public ContactController(IMessageService messageService)
+        public ContactController(IContactService contactService)
         {
-            _messageService = messageService;
-        }
-
-        [HttpPost]
-        public IActionResult CreateMessage(CreateMessageDto createMessageDto)
-        {
-            Message message = new Message();
-            message.UserEmail = createMessageDto.UserEmail;
-            message.UserMessage = createMessageDto.UserMessage;
-
-            _messageService.TInsert(message);
-            return Ok("Veri ekleme işlemi gerçekleşti!");
+            _contactService = contactService;
         }
 
         [HttpGet]
         public IActionResult ContactList()
         {
-            var values = _messageService.TGetAll();
+            var values = _contactService.TGetAll();
             return Ok(values);
         }
+        [HttpGet("{id}")]
+        public IActionResult GetContact(int id)
+        {
+            var value = _contactService.TGetById(id);
+            return Ok(value);
+        }
+        [HttpPut]
+        public IActionResult UpdateAbout(UpdateContactDto updateContactDto)
+        {
+            var contact = _contactService.TGetById(updateContactDto.ContactID);
+
+            if (contact == null)
+            {
+                return NotFound("Belirtilen ID'ye sahip kayıt bulunamadı.");
+            }
+
+            contact.PhoneNumber = updateContactDto.PhoneNumber;
+            contact.EmailAddress = updateContactDto.EmailAddress;
+            contact.Address = updateContactDto.Address;
+            contact.MapURL = updateContactDto.MapURL;
+
+            _contactService.TUpdate(contact);
+
+            return Ok(contact);
+        }
+
     }
 }

@@ -24,7 +24,7 @@ namespace CozaStore.WebAPI.Controllers
             return Ok(values);
         }
 
-        [HttpGet("GetAbout")]
+        [HttpGet("{id}")]
         public IActionResult GetAbout(int id)
         {
             var value = _aboutService.TGetById(id);

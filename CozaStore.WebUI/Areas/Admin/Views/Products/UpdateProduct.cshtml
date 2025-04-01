@@ -4,5 +4,56 @@
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 
-<h1>UpdateProduct</h1>
+<div class="content-body">
+    <div class="container-fluid">
+        <h2>Ürün bilgilerini güncelle</h2>
+        <hr />
+        <div class="row">
+            <div class="col-md-8">
+                <form method="post">
+                    <input type="hidden" name="ID" value="@Model.ID" />
+                    <label>Ürün Adı:</label>
+                    @Html.TextBoxFor(x => x.Title, new { @class = "form-control", @required = "required" })
+                    <br />
+                    <label>Fiyat:</label>
+                    @Html.TextBoxFor(x => x.Price, new { @class = "form-control", @required = "required", @step = "0.01" })
+                    <br />
+                    <label>Açıklama:</label>
+                    @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @required = "required" })
+                    <br />
+                    <label>Resim 1 URL:</label>
+                    @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control", @required = "required" })
+                    <br />
+                    <label>Resim 2 URL:</label>
+                    @Html.TextBoxFor(x => x.ImageURL2, new { @class = "form-control"})
+                    <br />
+                    <label>Resim 3 URL:</label>
+                    @Html.TextBoxFor(x => x.ImageURL3, new { @class = "form-control"})
+                    <br />
+                    <label>Popüler mi?:</label>
+                    @Html.DropDownListFor(
+                             x => x.IsPopular,
+                             new SelectList(new List<SelectListItem>
+                    {
+                    new SelectListItem { Text = "Evet", Value = "true" },
+                    new SelectListItem { Text = "Hayır", Value = "false" }
+                    }, "Value", "Text", Model.IsPopular.ToString()),
+                             new { @class = "form-control" }
+                             )
+                    <br />
+                    <label>Kategori:</label>
+                    @Html.DropDownListFor(
+                             x => x.CategoryID,
+                             (SelectList)ViewBag.Categories,
+                             new { @class = "form-control" }
+                             )
 
+
+                    <br />
+                    <button type="submit" class="btn btn-success">Ürünü Güncelle</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

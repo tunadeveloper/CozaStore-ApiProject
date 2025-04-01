@@ -23,6 +23,9 @@ builder.Services.AddScoped<IMessageService, MessageManager>();
 builder.Services.AddScoped<IAboutDAL, EfAboutDAL>();
 builder.Services.AddScoped<IAboutService, AboutManager>();
 
+builder.Services.AddScoped<IContactDAL, EfContactDAL>();
+builder.Services.AddScoped<IContactService, ContactService>();
+
 builder.Services.AddDbContext<ApiContext>();
 
 

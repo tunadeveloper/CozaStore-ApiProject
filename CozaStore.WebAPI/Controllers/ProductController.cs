@@ -74,7 +74,7 @@ namespace CozaStore.WebAPI.Controllers
             return Ok("Veri güncelleme işlemi gerçekleşti!");
         }
 
-        [HttpGet("GetProductsByCategory")]
+        [HttpGet("GetProductsByCategory/{categoryId}")]
         public IActionResult GetProductsByCategory(int categoryId)
         {
             var values = _productService.TGetAll().Where(p => p.CategoryID == categoryId);

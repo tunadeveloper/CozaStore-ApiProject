@@ -5,6 +5,7 @@ using System.Text;
 
 namespace CozaStore.WebUI.Controllers
 {
+
     public class ContactAndMessageController : Controller
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -23,10 +24,10 @@ namespace CozaStore.WebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
             var jsonContent = new StringContent(JsonConvert.SerializeObject(createMessageDto), Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7065/api/Contact", jsonContent);
+            var responseMessage = await client.PostAsync("https://localhost:7065/api/Message", jsonContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ContactAndMessage");
             }
             return View();
         }

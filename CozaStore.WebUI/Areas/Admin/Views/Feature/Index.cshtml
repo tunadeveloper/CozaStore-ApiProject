@@ -39,13 +39,14 @@
                                             <td>@item.Title</td>
                                             <td>@item.Subtitle</td>
                                             <td>
-                                                <button class="btn btn-danger">Sil</button>
-                                                <button class="btn btn-warning">Düzenle</button>
+                                                <a href="/Admin/Feature/DeleteFeature/@item.ID" class="btn btn-danger">Sil</a>
+                                                <a href="/Admin/Feature/UpdateFeature/@item.ID" class="btn btn-warning">Düzenle</a>
                                             </td>
                                         </tr>
                                     }
                                 </tbody>
                             </table>
+                            <a href="/Admin/Feature/CreateFeature" class="btn btn-primary">Yeni Öne Çıkan Ekle</a>
                         </div>
                     </div>
                 </div>

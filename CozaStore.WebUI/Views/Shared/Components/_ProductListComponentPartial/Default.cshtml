@@ -76,9 +76,10 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                           
 
-                                            @if (item.ImageURL2 != null || item.ImageURL2 == "")
+
+                                                    @if (!string.IsNullOrEmpty(item.ImageURL2))
+
                                             {
                                                     <div class="item-slick3" data-thumb="@item.ImageURL2">
                                                         <div class="wrap-pic-w pos-relative">
@@ -91,7 +92,8 @@
                                                     </div>
                                             }
 
-                                            @if (item.ImageURL3 != null || item.ImageURL3 == "")
+                                                    @if (!string.IsNullOrEmpty(item.ImageURL3))
+
                                             {
                                                     <div class="item-slick3" data-thumb="@item.ImageURL3">
                                                         <div class="wrap-pic-w pos-relative">

@@ -1,0 +1,52 @@
+﻿@model CozaStore.WebUI.Dtos.Contact.UpdateContactDto
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="content-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+
+
+                <form action="/Admin/Contact/Index/" method="post">
+                    @Html.HiddenFor(x => x.ContactID)
+
+                    <div class="row">
+                        <div class="col-lg-12 mb-4">
+                            <div class="form-group">
+                                <label class="text-label">Telefon Numarası*</label>
+                                @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control", @required = "required", type = "tel" })
+                            </div>
+
+                            <div class="form-group">
+                                <label class="text-label">E-Posta Adresi*</label>
+                                @Html.TextBoxFor(x => x.EmailAddress, new { @class = "form-control", @required = "required", type = "email" })
+
+                            </div>
+
+                            <div class="basic-form">
+                                <div class="form-group">
+                                    <label class="text-label">Adres*</label>
+                                    @Html.TextAreaFor(x => x.Address, new { @class = "form-control", rows = "5", @required = "required" })
+                                </div>
+                            </div>
+
+                            <div class="basic-form">
+                                <div class="form-group">
+                                    <label class="text-label">Harita URL*</label>
+                                    @Html.TextAreaFor(x => x.MapURL, new { @class = "form-control", rows = "5", @required = "required" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-warning">Bilgileri Güncelle</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
