@@ -1,5 +1,5 @@
-## 📱**Teknoloji API Projesi**
-Teknoloji API Projesi, modern ve kullanıcı dostu bir e-ticaret platformudur. Bu proje, .NET 6.0 teknolojisi kullanılarak geliştirilmiş, N-Tier (Çok Katmanlı) mimari yapısına sahip bir web uygulamasıdır.
+## 📱**RESTful API Projesi**
+RESTful API Projesi, modern ve kullanıcı dostu bir e-ticaret platformudur. Bu proje, .NET 6.0 teknolojisi kullanılarak geliştirilmiş, N-Tier (Çok Katmanlı) mimari yapısına sahip bir web uygulamasıdır.
 Bu proje, bir teknoloji mağazasının kolay bir şekilde satış yapabilmesi için hazırlandı.
 - 📝 Kullanıcılar ürün detaylarına bakabilir.
 - 🔥 Popüler ürünlere, anasayfada bakarak hızlı karar verebilir
